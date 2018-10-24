@@ -1,0 +1,19 @@
+# file: online
+
+[webservers]
+tarabiscot ansible_ssh_host=51.15.165.39 ansible_ssh_port=22 ansible_ssh_user=ned
+
+[pgsqlservers]
+tarabiscot ansible_ssh_host=51.15.165.39 ansible_ssh_port=22 ansible_ssh_user=ned
+
+[queueservers]
+tarabiscot ansible_ssh_host=51.15.165.39 ansible_ssh_port=22 ansible_ssh_user=ned
+
+[elasticsearchservers]
+tarabiscot ansible_ssh_host=51.15.165.39 ansible_ssh_port=22 ansible_ssh_user=ned
+
+[staging:children]
+webservers
+pgsqlservers
+queueservers
+elasticsearchservers

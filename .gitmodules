@@ -1,0 +1,6 @@
+[submodule "roles/ansistrano.deploy"]
+	path = roles/ansistrano.deploy
+	url = https://github.com/ansistrano/deploy
+[submodule "roles/ansistrano.rollback"]
+	path = roles/ansistrano.rollback
+	url = https://github.com/ansistrano/rollback

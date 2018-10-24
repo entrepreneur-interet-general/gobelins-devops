@@ -1,0 +1,14 @@
+enable_ssl: true
+
+virtualhosts:
+  gobelins:
+    servernames:
+      - collection.mobiliernational.fr
+      - collection.mobiliernational.culture.gouv.fr
+    run_queue_worker: false
+    has_scheduled_jobs: false
+  datasource:
+    servernames:
+      - datasource-to-be-defined.tld
+    run_queue_worker: false
+    has_scheduled_jobs: false

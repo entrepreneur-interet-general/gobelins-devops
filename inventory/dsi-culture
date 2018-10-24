@@ -1,0 +1,35 @@
+# file: dsi-culture
+
+# By role ######################
+
+[webservers]
+web01.prod.culture.gouv.fr
+web02.prod.culture.gouv.fr
+staging.culture.gouv.fr
+
+[pgsqlservers]
+db-master.prod.culture.gouv.fr
+db-slave.prod.culture.gouv.fr
+staging.culture.gouv.fr
+
+[queueservers]
+tasks01.prod.culture.gouv.fr
+staging.culture.gouv.fr
+
+[elasticsearchservers]
+search01.prod.culture.gouv.fr
+staging.culture.gouv.fr
+
+
+# By environment ################
+
+[production]
+web01.prod.culture.gouv.fr
+web02.prod.culture.gouv.fr
+db-master.prod.culture.gouv.fr
+db-slave.prod.culture.gouv.fr
+tasks01.prod.culture.gouv.fr
+search01.prod.culture.gouv.fr
+
+[staging]
+staging.culture.gouv.fr

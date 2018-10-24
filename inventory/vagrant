@@ -1,0 +1,19 @@
+# file: vagrant
+
+[webservers]
+localhost ansible_ssh_host=localhost ansible_ssh_port=2210 ansible_ssh_user=vagrant
+
+[pgsqlservers]
+localhost ansible_ssh_host=localhost ansible_ssh_port=2210 ansible_ssh_user=vagrant
+
+[queueservers]
+localhost ansible_ssh_host=localhost ansible_ssh_port=2210 ansible_ssh_user=vagrant
+
+[elasticsearchservers]
+localhost ansible_ssh_host=localhost ansible_ssh_port=2210 ansible_ssh_user=vagrant
+
+[development:children]
+webservers
+pgsqlservers
+queueservers
+elasticsearchservers
