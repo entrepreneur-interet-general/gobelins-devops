@@ -1,14 +1,20 @@
 # file: roles/webtier/tasks/dotenv.yml
-- name: Check if .env template exists
+- name: Check if .env templates exist
   tags: dotenv
   local_action: stat path=dotenv_templates/{{ inventory_hostname }}.{{ item.key }}.j2
   vars:
-     ansible_become: no
+    ansible_become: no
   with_dict: "{{ virtualhosts }}"
-  register: dotenv_file
+  register: dotenv_files
 
-- name: Create node spesific .env file  
+- name: Create shared directory for .env file
   tags: dotenv
-  template: src={{ item.stat.path }} dest=/var/www/{{ item.item.key }}/.env
-  with_items: "{{ dotenv_file.results }}"  
+  file: path=/var/www/{{ item.item.key }}/shared state=directory owner=nginx group=nginx mode=0775
+  with_items: "{{ dotenv_files.results }}"
+  when: item.stat.exists == True
+
+- name: Create specific .env file for this hostname + environmnent pair.
+  tags: dotenv
+  template: src={{ item.stat.path }} dest=/var/www/{{ item.item.key }}/shared/.env owner=nginx group=nginx
+  with_items: "{{ dotenv_files.results }}"
   when: item.stat.exists == True

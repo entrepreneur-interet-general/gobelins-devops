@@ -1,0 +1,26 @@
+- stat: "path={{ ansistrano_shared_path }}/.env"
+  register: env_file
+
+- name: Copy .env.example
+  copy:
+    src: "{{ ansistrano_release_path.stdout }}/.env.example"
+    dest: "{{ ansistrano_shared_path }}/.env"
+    remote_src: True
+  when: env_file.stat.exists == False
+
+- stat: path={{ ansistrano_shared_path }}/storage
+  register: storage_dir
+
+- name: Copy storage directory
+  command: "cp -r {{ ansistrano_release_path.stdout }}/storage {{ ansistrano_shared_path }}/storage"
+  when: storage_dir.stat.exists == False
+
+# - name: Check if storage is empty
+#   find:
+#     paths: "{{ ansistrano_shared_path }}/storage"
+#     patterns: "*"
+#   register: storage_dir_contents
+
+# - name: Copy storage directory content
+#   command: "cp -r {{ ansistrano_release_path.stdout }}/storage {{ ansistrano_shared_path }}/storage"
+#   when: storage_dir_contents.matched > 0

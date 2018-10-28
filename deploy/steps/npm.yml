@@ -1,0 +1,9 @@
+- name: Run npm install
+  shell: chdir={{ ansistrano_release_path.stdout }}
+    {{ npm_path }} install
+  when: compile_frontend_assets
+
+- name: Run npm run production
+  shell: chdir={{ ansistrano_release_path.stdout }}
+    {{ npm_path }} run production
+  when: compile_frontend_assets

@@ -1,0 +1,8 @@
+- name: Add Nodesource repository to have access to node 10.x
+  tags: nodejs
+  shell: "curl -sL https://rpm.nodesource.com/setup_10.x | sudo bash -"
+
+- name: Install Nodejs
+  tags: nodejs
+  yum: name=nodejs state=installed enablerepo=nodesource
+  when: ansible_distribution == 'CentOS' or ansible_distribution == 'RedHat'

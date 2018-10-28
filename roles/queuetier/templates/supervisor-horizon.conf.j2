@@ -1,6 +1,6 @@
 [program:{{ item.key }}-horizon]
 process_name=%(program_name)s
-command=php /var/www/{{ item.key }}/artisan horizon
+command=php /var/www/{{ item.key }}/current/artisan horizon
 autostart=true
 autorestart=true
 user=nginx

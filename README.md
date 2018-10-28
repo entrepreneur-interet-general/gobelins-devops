@@ -35,9 +35,17 @@ ansible-playbook --vault-password-file=vault_password -i inventory/vagrant site.
 ansible-playbook --vault-password-file=vault_password -i inventory/online site.yml  --limit=staging
 ```
 
-### Application deployment
+## Application deployment
 
 …TODO…
+
+## Adding encrypted variables
+
+You’ll need the vault password. We use the same password for all strings in all the variable files.
+
+```shell
+ansible-vault encrypt_string 'supersecretstring' --name 'label_name'
+```
 
 ### Credits
 

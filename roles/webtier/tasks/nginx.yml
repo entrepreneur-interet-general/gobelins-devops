@@ -9,7 +9,7 @@
   apt: name="{{ packages }}" state=absent purge=yes
   when: ansible_distribution == 'Ubuntu' or ansible_distribution == 'Debian'
   vars:
-      packages:
+    packages:
       - apache2
       - apache2-utils
 
@@ -67,4 +67,3 @@
   file: path=/var/www/{{ item.key }}/public state=directory owner=www-data group=www-data mode=0775
   with_dict: "{{ virtualhosts }}"
   when: ansible_distribution == 'Ubuntu' or ansible_distribution == 'Debian'
-

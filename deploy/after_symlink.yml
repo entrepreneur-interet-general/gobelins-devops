@@ -1,0 +1,3 @@
+#- include: "{{ playbook_dir }}/deploy/steps/chown.yml"
+- include: "{{ playbook_dir }}/deploy/steps/clear_opcache.yml"
+- include: "{{ playbook_dir }}/deploy/steps/restart_queue.yml"
