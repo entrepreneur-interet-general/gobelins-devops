@@ -2,6 +2,20 @@ letsencrypt_email: ned@baldessin.fr
 
 php_extra_packages:
   - php-intl
+  - php-pgsql
+  - php-memcached
+  - php-fpm
+  - php-pdo
+  - php-mbstring
+  - php-xml
+  - php-cli
+  - php-common
+  - php-mcrypt
+  - php-gd
+  - php-curl
+  - php-readline
+  - php-zip
+  - php-bcmath
 
 server_locales:
   - en_US.UTF-8
