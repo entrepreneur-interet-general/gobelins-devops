@@ -1,2 +1,3 @@
-- name: Update chown to {{ owner }}:{{ group }}
-  file: path={{ ansistrano_deploy_to }} state=directory owner={{ owner }} group={{ group }} recurse=yes
+- name: Chown shared storage to {{ owner }}:{{ group }}
+  file: path={{ ansistrano_deploy_to }}/shared/storage state=directory owner={{ owner }} group={{ group }} recurse=yes
+  become: true

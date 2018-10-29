@@ -1,9 +1,12 @@
-- name: Run npm install
-  shell: chdir={{ ansistrano_release_path.stdout }}
-    {{ npm_path }} install
+- name: Install npm packages based on package.json.
+  tags: npminstall
+  npm:
+    path: "{{ ansistrano_release_path.stdout }}"
   when: compile_frontend_assets
 
 - name: Run npm run production
-  shell: chdir={{ ansistrano_release_path.stdout }}
-    {{ npm_path }} run production
+  tags: npminstall
+  shell: "{{ npm_path }} run production"
+  args:
+    chdir: "{{ ansistrano_release_path.stdout }}"
   when: compile_frontend_assets

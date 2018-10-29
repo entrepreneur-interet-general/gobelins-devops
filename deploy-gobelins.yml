@@ -1,7 +1,6 @@
 # file: deploy-gobelins.yml
 - hosts: webservers
   # become: true
-  # become_user: nginx
   roles:
     - ansistrano.deploy
   vars:
@@ -35,8 +34,8 @@
     ansistrano_before_symlink_tasks_file: "{{ playbook_dir }}/deploy/before_symlink.yml"
     ansistrano_after_symlink_tasks_file: "{{ playbook_dir }}/deploy/after_symlink.yml"
 
-    owner: vagrant
-    group: vagrant
+    owner: nginx
+    group: nginx
 
     php_path: /usr/bin/php
 
