@@ -39,6 +39,12 @@
   notify:
     - Restart nginx
 
+- name: Copy HTTP auth credentials
+  tags: nginx
+  template: src=htpasswd.j2 dest=/etc/nginx/.htpasswd
+  notify:
+    - Restart nginx
+
 - name: Make sure nginx virtual hosts are configured
   tags: nginx
   template: src=nginx-virtualhost.conf.j2 dest=/etc/nginx/conf.d/{{ item.key }}.conf

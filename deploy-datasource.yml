@@ -1,0 +1,52 @@
+# file: deploy-datasource.yml
+- hosts: webservers
+  roles:
+    - ansistrano.deploy
+  vars:
+    ansistrano_deploy_to: "/var/www/datasource" # Base path to deploy to.
+    ansistrano_keep_releases: 2
+
+    ansistrano_shared_paths:
+      - storage/app
+      - storage/cache
+      - storage/debugbar
+      - storage/framework/cache
+      - storage/framework/sessions
+      - storage/framework/testing
+      - storage/framework/views
+      - storage/logs
+    ansistrano_shared_files:
+      - .env
+
+    ansistrano_deploy_via: "git"
+    ansistrano_allow_anonymous_stats: no
+
+    # Variables used in the Git deployment strategy
+    # ansistrano_git_repo: git@github.com:entrepreneur-interet-general/gobelins.git
+    ansistrano_git_repo: https://github.com/entrepreneur-interet-general/gobelins-datasource.git
+    ansistrano_git_branch: master
+
+    ansistrano_before_setup_tasks_file: "{{ playbook_dir }}/deploy/before_setup_tasks.yml"
+    ansistrano_before_symlink_shared_tasks_file: "{{ playbook_dir }}/deploy/before_symlink_shared.yml"
+    ansistrano_after_symlink_shared_tasks_file: "{{ playbook_dir }}/deploy/after_symlink_shared.yml"
+    ansistrano_before_symlink_tasks_file: "{{ playbook_dir }}/deploy/before_symlink.yml"
+    ansistrano_after_symlink_tasks_file: "{{ playbook_dir }}/deploy/after_symlink.yml"
+
+    owner: nginx
+    group: nginx
+
+    php_path: /usr/bin/php
+
+    # Composer is already installed with the webservers.yml playbook.
+    #composer_path: "{{ ansistrano_deploy_to }}/composer.phar"
+    composer_path: /usr/bin/composer
+    composer_options: "--no-dev --optimize-autoloader --no-interaction"
+    composer_self_update: true
+
+    cachetool_path: "{{ ansistrano_deploy_to }}/cachetool.phar"
+    cachetool_options: "--fcgi"
+
+    compile_frontend_assets: false
+    npm_path: /usr/bin/npm
+
+    laravel_uploads_storage: false

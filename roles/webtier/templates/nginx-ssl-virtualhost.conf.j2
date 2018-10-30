@@ -7,6 +7,10 @@ server {
     root   /var/www/{{ item.key }}/current/public;
     index index.php;
 
+    # Temporary
+    auth_basic "BETA";
+    auth_basic_user_file /etc/nginx/.htpasswd;
+
     access_log  /var/log/nginx/{{ item.value.servername }}-access.log;
     error_log  /var/log/nginx/{{ item.value.servername }}-error.log error;
 
