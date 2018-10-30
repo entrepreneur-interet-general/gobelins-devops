@@ -44,7 +44,7 @@ ansible-playbook --vault-password-file=vault_password -i inventory/online site.y
 You’ll need the vault password. We use the same password for all strings in all the variable files.
 
 ```shell
-ansible-vault encrypt_string 'supersecretstring' --name 'label_name'
+ansible-vault encrypt_string 'supersecretstring' --name 'label_name' --vault-password-file=vault_password
 ```
 
 ### Credits

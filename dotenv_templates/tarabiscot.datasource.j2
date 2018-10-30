@@ -2,7 +2,7 @@ APP_NAME="Gobelins Datasource"
 APP_ENV=staging
 APP_KEY={{ dotenv.datasource_app_key }}
 APP_DEBUG=true
-APP_URL=https://datasource.collections-mobilier-national.com
+APP_URL=http://datasource.collections-mobilier-national.com
 
 LOG_CHANNEL=stack
 
@@ -44,3 +44,5 @@ SCOM_DUMP_FILE_PATH=storage/app/scom.sql
 # Relative to storage directory.
 SCOM_DUMP_DIRECTORY_PATH=app/scom_latest
 
+HTTP_AUTH_USERNAME={{ dotenv.http_auth_username }}
+HTTP_AUTH_PASSWORD={{ dotenv.http_auth_password }}
