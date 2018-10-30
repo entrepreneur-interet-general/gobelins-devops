@@ -11,11 +11,11 @@ server {
     auth_basic "BETA";
     auth_basic_user_file /etc/nginx/.htpasswd;
 
-    access_log  /var/log/nginx/{{ item.value.servername }}-access.log;
-    error_log  /var/log/nginx/{{ item.value.servername }}-error.log error;
+    access_log  /var/log/nginx/{{ item.value.servernames[0] }}-access.log;
+    error_log  /var/log/nginx/{{ item.value.servernames[0] }}-error.log error;
 
-    ssl_certificate /etc/letsencrypt/live/{{ item.value.servername }}/fullchain.pem;
-    ssl_certificate_key /etc/letsencrypt/live/{{ item.value.servername }}/privkey.pem;
+    ssl_certificate /etc/letsencrypt/live/{{ item.value.servernames[0] }}/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/{{ item.value.servernames[0] }}/privkey.pem;
     ssl_dhparam /etc/ssl/certs/dhparam.pem;
 
     ssl_protocols TLSv1 TLSv1.1 TLSv1.2;

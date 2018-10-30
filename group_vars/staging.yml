@@ -1,4 +1,4 @@
-enable_ssl: true
+enable_ssl: false
 
 virtualhosts:
   gobelins:

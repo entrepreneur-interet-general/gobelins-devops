@@ -4,10 +4,10 @@
   become_user: root
 
   pre_tasks:
-    - name: Make selinux permissive
-      selinux:
-        policy: targeted
-        state: permissive
+    # - name: Make selinux permissive
+    #   selinux:
+    #     policy: targeted
+    #     state: permissive
 
     - name: Install PostgreSQL 9.6 repository
       yum:

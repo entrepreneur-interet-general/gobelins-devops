@@ -13,6 +13,6 @@
   when: enable_ssl|default(false)|bool == true
 - import_tasks: firewalld.yml
 - import_tasks: redis.yml
-- import_tasks: selinux.yml
-  when: ansible_distribution == 'CentOS' or ansible_distribution == 'RedHat'
+# - import_tasks: selinux.yml
+#   when: ansible_distribution == 'CentOS' or ansible_distribution == 'RedHat'
 - import_tasks: nodejs.yml

@@ -35,12 +35,10 @@
     state: absent
 
 - import_tasks: ntp.yml
-- import_tasks: selinux.yml
-  when: ansible_distribution == 'CentOS' or ansible_distribution == 'RedHat'
+# - import_tasks: selinux.yml
+#   when: ansible_distribution == 'CentOS' or ansible_distribution == 'RedHat'
 - import_tasks: yum-cron.yml
   when: ansible_distribution == 'CentOS' or ansible_distribution == 'RedHat'
 - import_tasks: cron-apt.yml
   when: ansible_distribution == 'Ubuntu' or ansible_distribution == 'Debian'
 - import_tasks: swap.yml
-
-- import_tasks: user.yml
