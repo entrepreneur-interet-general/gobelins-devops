@@ -7,6 +7,7 @@
   when: composer_file.stat.exists and composer_self_update
   register: composer_self_update_result
   changed_when: composer_self_update_result.stderr | search('Updating')
+  become: true
 
 - name: Install composer
   get_url: url=https://getcomposer.org/composer.phar dest={{ composer_path }} mode=0755 validate_certs=no force=no
