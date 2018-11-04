@@ -29,6 +29,10 @@
     system: yes
   when: ansible_distribution == 'Ubuntu' or ansible_distribution == 'Debian'
 
+- name: Create cache directory
+  tags: nginx
+  file: path=/var/cache/nginx/gobelinsimg state=directory owner=nginx group=nginx mode=0775
+
 - name: Make sure nginx is running and is started on boot
   tags: nginx
   service: name=nginx state=started enabled=yes

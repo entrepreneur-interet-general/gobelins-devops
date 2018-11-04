@@ -34,7 +34,8 @@ http {
     gzip  on;
 
     # Key zone size: 20Mb =~ 160 000 keys
-    fastcgi_cache_path /var/cache/nginx/gobelinsimg levels=1:2 keys_zone=gobelinsimg:20m max_size=10g inactive=1y use_tmp_path=off;
+    fastcgi_cache_path /var/cache/nginx/gobelinsimg levels=1:2 keys_zone=gobelinsimg:20m max_size=10g inactive=1y;
+    fastcgi_cache_key "$scheme$request_method$host$request_uri";
 
     include /etc/nginx/conf.d/*.conf;
 }
