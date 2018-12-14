@@ -20,7 +20,7 @@ vagrant up
 
 ```shell
 echo 'thepassword' > vault_password # <- replace with real password provided.
-chmod 0500 vault_password
+chmod 0400 vault_password
 ```
 
 4. Install the required stack on your local VM provisionned with Vagrant:
