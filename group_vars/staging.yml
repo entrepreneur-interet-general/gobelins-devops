@@ -3,12 +3,12 @@ enable_ssl: false
 virtualhosts:
   gobelins:
     servernames:
-      - beta.collections-mobilier-national.com
-      - admin.beta.collections-mobilier-national.com
+      - cmn-recette.culture.fr
+      - admin.cmn-recette.culture.fr
     run_queue_worker: false
     has_scheduled_jobs: false
   datasource:
     servernames:
-      - datasource.collections-mobilier-national.com
+      - datasource.cmn-recette.culture.fr
     run_queue_worker: false
     has_scheduled_jobs: false
