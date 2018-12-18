@@ -1,7 +1,7 @@
 # file: roles/webtier/tasks/redis.yml
 - name: Install redis
   tags: redis
-  yum: name=redis state=installed enablerepo=remi
+  yum: name=redis state=installed enablerepo= "{{ remi_repo_name }}"
   when: ansible_distribution == 'CentOS' or ansible_distribution == 'RedHat'
 
 - name: Install redis

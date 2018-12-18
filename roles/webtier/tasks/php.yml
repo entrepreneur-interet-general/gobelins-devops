@@ -1,6 +1,6 @@
 # file: roles/webtier/tasks/php.yml
 - name: Install PHP and extensions
-  yum: # name={{ item }} state=installed enablerepo=epel,remi,remi-php72
+  yum:
     name:
       - php
       - php-zip
@@ -12,12 +12,12 @@
       - php-mysqlnd
       - php-opcache
     state: installed
-    enablerepo: epel,remi,remi-php72
+    enablerepo: "{{ epel_repo_name }},{{ remi_repo_name }},{{ remiphp72_repo_name }}"
   tags: php
   when: ansible_distribution == 'CentOS' or ansible_distribution == 'RedHat'
 
 - name: Install PHP and extensions
-  apt: #name={{ item }} state=installed update_cache=yes
+  apt:
     name:
       - php7.2
       - php7.2-zip
@@ -36,7 +36,7 @@
   yum:
     name: "{{ php_extra_packages }}"
     state: installed
-    enablerepo: epel,remi,remi-php72
+    enablerepo: "{{ epel_repo_name }},{{ remi_repo_name }},{{ remiphp72_repo_name }}"
   tags: php-extra
   when: php_extra_packages is defined and (ansible_distribution == 'CentOS' or ansible_distribution == 'RedHat')
   notify:

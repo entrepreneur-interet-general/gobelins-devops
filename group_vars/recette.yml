@@ -1,5 +1,17 @@
 enable_ssl: false
 
+epel_repo_name: epel-mcc
+remi_repo_name: remi
+remiphp72_repo_name: remi-php72
+
+environment:
+  http_proxy: http://proxy-web.culture.fr:8000
+  https_proxy: http://proxy-web.culture.fr:8000
+
+proxy_env:
+  http_proxy: http://proxy-web.culture.fr:8000
+  https_proxy: http://proxy-web.culture.fr:8000
+
 virtualhosts:
   gobelins:
     servernames:

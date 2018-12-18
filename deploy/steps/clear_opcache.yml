@@ -3,7 +3,9 @@
   register: cachetool_file
 
 - name: Install cachetool
+  environment: "{{ proxy_env }}"
   get_url: url=https://gordalina.github.io/cachetool/downloads/cachetool.phar dest={{ cachetool_path }} mode=0755 validate_certs=no force=no
+    use_proxy: yes
 
 - name: Run opcache:reset
   shell: "{{ php_path }} {{ cachetool_path }} opcache:reset {{ cachetool_options }}"

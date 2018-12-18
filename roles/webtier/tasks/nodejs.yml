@@ -1,8 +1,19 @@
-- name: Add Nodesource repository to have access to node 10.x
-  tags: nodejs
-  shell: "curl -sL https://rpm.nodesource.com/setup_10.x | sudo bash -"
+#- name: Add Nodesource repository to have access to node 10.x
+#  tags: nodejs
+#  shell: "curl -x {{ proxy_env.http_proxy }} -sL https://rpm.nodesource.com/setup_10.x | bash -"
 
-- name: Install Nodejs
+#- name: Install Nodejs
+#  tags: nodejs
+#  yum: name=nodejs state=installed enablerepo=nodesource
+#  when: ansible_distribution == 'CentOS' or ansible_distribution == 'RedHat'
+# file: roles/webtier/tasks/nodejs.yml
+- name: Enable Node.js repository permanently
   tags: nodejs
-  yum: name=nodejs state=installed enablerepo=nodesource
-  when: ansible_distribution == 'CentOS' or ansible_distribution == 'RedHat'
+  yum_repository:
+    name: nodesource
+    description: Node.js Packages for Enterprise Linux 7 - $basearch
+    baseurl: https://rpm.nodesource.com/pub_10.x/el/7/$basearch
+    enabled: 1
+    gpgcheck: 1
+    gpgkey: https://rpm.nodesource.com/pub/el/NODESOURCE-GPG-SIGNING-KEY-EL
+    proxy: "{{ proxy_env.http_proxy }}"

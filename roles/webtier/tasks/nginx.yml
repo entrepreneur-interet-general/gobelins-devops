@@ -6,7 +6,7 @@
 
 - name: Make sure apache related packages are removed
   tags: nginx
-  apt: name="{{ packages }}" state=absent purge=yes
+  apt: name= "{{ packages }}" state=absent purge=yes
   when: ansible_distribution == 'Ubuntu' or ansible_distribution == 'Debian'
   vars:
     packages:
@@ -78,9 +78,9 @@
   with_dict: "{{ virtualhosts }}"
   when: ansible_distribution == 'Ubuntu' or ansible_distribution == 'Debian'
 
-- name: Adding user {{ ansible_ssh_user }} to nginx group
-  user:
-    name: "{{ ansible_ssh_user }}"
-    group: nginx
-    append: yes
-  become: yes
+#- name: Adding user {{ ansible_ssh_user }} to nginx group
+#  user:
+#    name: "{{ ansible_ssh_user }}"
+#    group: nginx
+#    append: yes
+#  become: yes

@@ -10,7 +10,9 @@
   become: true
 
 - name: Install composer
+  environment: "{{ proxy_env }}"
   get_url: url=https://getcomposer.org/composer.phar dest={{ composer_path }} mode=0755 validate_certs=no force=no
+    use_proxy: yes
 
 - name: Run composer install
   shell: chdir={{ ansistrano_release_path.stdout }}

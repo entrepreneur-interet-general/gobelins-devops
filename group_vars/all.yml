@@ -9,6 +9,13 @@ htpasswd_content: !vault |
 
 letsencrypt_email: ned@baldessin.fr
 
+epel_repo_name: epel
+remi_repo_name: remi
+remiphp72_repo_name: remi-php72
+proxy_env:
+  http_proxy: _none_
+  https_proxy: _none_
+
 php_extra_packages:
   - php-intl
   - php-pgsql

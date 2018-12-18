@@ -1,10 +1,24 @@
 # file: roles/common/tasks/remi.yml
-- name: Import PGP key for Remi's RPM repository
-  tags: remi
-  rpm_key: state=present key=http://rpms.famillecollet.com/RPM-GPG-KEY-remi
+#- name: Import PGP key for Remi's RPM repository
+#  tags: remi
+#  rpm_key: state=present key=http://rpms.famillecollet.com/RPM-GPG-KEY-remi
+#- name: Import GPG key
+#  command: rpm --import --httpproxy http://proxy-web.culture.fr --httpport 8000 http://rpms.famillecollet.com/RPM-GPG-KEY-remi
 
-- name: Install package for Remi's RPM repository
-  tags: remi
-  yum:
-    name: "http://rpms.remirepo.net/enterprise/remi-release-{{ ansible_distribution_major_version }}.rpm"
-    state: present
+#- name: Install package for Remi's RPM repository
+#  tags: remi
+#  yum:
+#    name: "http://rpms.remirepo.net/enterprise/remi-release-{{ ansible_distribution_major_version }}.rpm"
+#    state: present
+#    environment:
+#      http_proxy: http://proxy-web.culture.fr:8000
+#      https_proxy: http://proxy-web.culture.fr:8000
+- name: Remi
+  yum_repository:
+    name: remi
+    description: REMI YUM repo
+    baseurl: http://rpms.remirepo.net/enterprise/7/remi/$basearch/ 
+    gpgcheck: yes
+    gpgkey: http://rpms.famillecollet.com/RPM-GPG-KEY-remi
+    enabled: yes
+    proxy: "{{ proxy_env.http_proxy }}"
