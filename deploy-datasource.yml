@@ -1,5 +1,7 @@
 # file: deploy-datasource.yml
 - hosts: webservers
+  become: true
+  become_user: root
   roles:
     - ansistrano.deploy
   vars:

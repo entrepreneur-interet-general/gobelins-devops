@@ -1,0 +1,48 @@
+APP_NAME="Gobelins Datasource"
+APP_ENV=staging
+APP_KEY={{ dotenv.datasource_app_key }}
+APP_DEBUG=true
+APP_URL=https://datasource.cmn-recette.culture.fr
+
+LOG_CHANNEL=stack
+
+DB_CONNECTION=pgsql
+DB_HOST=127.0.0.1
+DB_PORT=5432
+DB_DATABASE=postgres
+DB_USERNAME=gobelins
+DB_PASSWORD={{ dotenv.gobelins_postgres_password }}
+
+BROADCAST_DRIVER=log
+CACHE_DRIVER=file
+SESSION_DRIVER=file
+SESSION_LIFETIME=120
+QUEUE_DRIVER=sync
+
+REDIS_HOST=127.0.0.1
+REDIS_PASSWORD=null
+REDIS_PORT=6379
+
+MAIL_DRIVER=smtp
+MAIL_HOST=smtp-dmz.culture.fr
+MAIL_PORT=25
+MAIL_USERNAME=null
+MAIL_PASSWORD=null
+MAIL_ENCRYPTION=null
+
+PUSHER_APP_ID=
+PUSHER_APP_KEY=
+PUSHER_APP_SECRET=
+PUSHER_APP_CLUSTER=mt1
+
+MIX_PUSHER_APP_KEY="${PUSHER_APP_KEY}"
+MIX_PUSHER_APP_CLUSTER="${PUSHER_APP_CLUSTER}"
+
+# Relative to project root.
+SCOM_DUMP_FILE_PATH=storage/app/scom.sql
+
+# Relative to storage directory.
+SCOM_DUMP_DIRECTORY_PATH=app/scom_latest
+
+HTTP_AUTH_USERNAME={{ dotenv.http_auth_username }}
+HTTP_AUTH_PASSWORD={{ dotenv.http_auth_password }}
