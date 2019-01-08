@@ -1,3 +1,12 @@
+- name: Configure proxy for npm
+  tags: npminstall
+  shell: |
+    {{ npm_path }} config set proxy {{proxy_env.http_proxy}}
+    {{ npm_path }} config set https-proxy {{proxy_env.https_proxy}}
+  args:
+    chdir: "{{ ansistrano_release_path.stdout }}"
+  when: proxy_env.http_proxy
+
 - name: Install npm packages based on package.json.
   tags: npminstall
   npm:

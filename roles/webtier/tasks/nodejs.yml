@@ -17,3 +17,7 @@
     gpgcheck: 1
     gpgkey: https://rpm.nodesource.com/pub/el/NODESOURCE-GPG-SIGNING-KEY-EL
     proxy: "{{ proxy_env.http_proxy }}"
+- name: Install Nodejs
+  tags: nodejs
+  yum: name=nodejs state=installed enablerepo=nodesource
+  when: ansible_distribution == 'CentOS' or ansible_distribution == 'RedHat'

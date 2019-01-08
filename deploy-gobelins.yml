@@ -1,6 +1,6 @@
 # file: deploy-gobelins.yml
 - hosts: webservers
-  # become: true
+  become: true
   roles:
     - ansistrano.deploy
   vars:
