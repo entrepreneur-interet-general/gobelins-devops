@@ -9,12 +9,12 @@
 
 - name: Create shared directory for .env file
   tags: dotenv
-  file: path=/var/www/{{ item.item.key }}/shared state=directory owner=nginx group=nginx mode=0775
+  file: path=/var/www/{{ item.item.key }}/shared state=directory owner={{ deployer_user }} group={{ deployer_user }} mode=0755
   with_items: "{{ dotenv_files.results }}"
   when: item.stat.exists == True
 
 - name: Create specific .env file for this hostname + environmnent pair.
   tags: dotenv
-  template: src={{ item.stat.path }} dest=/var/www/{{ item.item.key }}/shared/.env owner=nginx group=nginx
+  template: src={{ item.stat.path }} dest=/var/www/{{ item.item.key }}/shared/.env owner={{ deployer_user }} group={{ deployer_user }} mode=0644
   with_items: "{{ dotenv_files.results }}"
   when: item.stat.exists == True

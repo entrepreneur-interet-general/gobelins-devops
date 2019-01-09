@@ -31,7 +31,7 @@
 
 - name: Create cache directory
   tags: nginx
-  file: path=/var/cache/nginx/gobelinsimg state=directory owner=nginx group=nginx mode=0775
+  file: path=/var/cache/nginx/gobelinsimg state=directory owner=nginx group=nginx mode=0755
 
 - name: Make sure nginx is running and is started on boot
   tags: nginx
@@ -68,7 +68,7 @@
 
 - name: Create public directory
   tags: nginx
-  file: path=/var/www/{{ item.key }}/public state=directory owner=nginx group=nginx mode=0775
+  file: path=/var/www/{{ item.key }}/public state=directory owner={{ deployer_user }} group={{ deployer_user }} mode=0755
   with_dict: "{{ virtualhosts }}"
   when: ansible_distribution == 'CentOS' or ansible_distribution == 'RedHat'
 

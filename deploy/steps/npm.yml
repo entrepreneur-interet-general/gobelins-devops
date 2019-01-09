@@ -1,5 +1,7 @@
 - name: Configure proxy for npm
   tags: npminstall
+  become: true
+  become_user: "{{ deployer_user }}"
   shell: |
     {{ npm_path }} config set proxy {{proxy_env.http_proxy}}
     {{ npm_path }} config set https-proxy {{proxy_env.https_proxy}}
@@ -9,12 +11,16 @@
 
 - name: Install npm packages based on package.json.
   tags: npminstall
+  become: true
+  become_user: "{{ deployer_user }}"
   npm:
     path: "{{ ansistrano_release_path.stdout }}"
   when: compile_frontend_assets
 
 - name: Run npm run production
   tags: npminstall
+  become: true
+  become_user: "{{ deployer_user }}"
   shell: "{{ npm_path }} run production"
   args:
     chdir: "{{ ansistrano_release_path.stdout }}"
