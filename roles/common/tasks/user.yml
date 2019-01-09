@@ -5,3 +5,10 @@
     createhome: yes
     shell: /bin/bash
     append: yes
+
+- name: Add proxy config for git for deployer user
+  git_config:
+    name: http.proxy
+    scope: global
+    value: "{{ proxy_env.http_proxy }}"
+  when: proxy_env.http_proxy
