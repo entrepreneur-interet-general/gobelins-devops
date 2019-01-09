@@ -8,6 +8,9 @@
 - import_tasks: remi.yml
   when: ansible_distribution == 'CentOS' or ansible_distribution == 'RedHat'
 
+- import_tasks: user.yml
+  when: ansible_distribution == 'CentOS' or ansible_distribution == 'RedHat'
+
 - name: Make sure git is installed
   tags: git
   yum: name=git state=installed
