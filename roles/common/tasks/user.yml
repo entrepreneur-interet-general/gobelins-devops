@@ -1,4 +1,5 @@
 - name: Add unprivileged deployer user
+  tags: deployer_user
   user:
     name: "{{ deployer_user }}"
     state: present
@@ -7,6 +8,7 @@
     append: yes
 
 - name: Add proxy config for git for deployer user
+  tags: deployer_user
   git_config:
     name: http.proxy
     scope: global
