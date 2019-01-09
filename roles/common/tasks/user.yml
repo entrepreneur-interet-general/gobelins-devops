@@ -1,0 +1,7 @@
+- name: Add unprivileged deployer user
+  user:
+    name: "{{ deployer_user }}"
+    state: present
+    createhome: yes
+    shell: /bin/bash
+    append: yes

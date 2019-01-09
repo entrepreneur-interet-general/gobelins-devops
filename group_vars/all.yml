@@ -9,6 +9,9 @@ htpasswd_content: !vault |
 
 letsencrypt_email: ned@baldessin.fr
 
+# Unprivileged system user created to execute application deployment tasks.
+deployer_user: gobelins
+
 epel_repo_name: epel
 remi_repo_name: remi
 remiphp72_repo_name: remi-php72

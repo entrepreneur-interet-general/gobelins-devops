@@ -26,18 +26,32 @@ chmod 0400 vault_password
 4. Install the required stack on your local VM provisionned with Vagrant:
 
 ```shell
-ansible-playbook --vault-password-file=vault_password -i inventory/vagrant site.yml --limit=development
+ansible-playbook --vault-password-file=vault_password -i inventory/vagrant site.yml --limit=development -K
 ```
 
 5. Or provision the staging server:
 
 ```shell
-ansible-playbook --vault-password-file=vault_password -i inventory/online site.yml  --limit=staging
+ansible-playbook --vault-password-file=vault_password -i inventory/online site.yml  --limit=staging -K
 ```
 
 ## Application deployment
 
-…TODO…
+1/ Deploy the code :
+
+```shell
+
+ansible-playbook --vault-password-file=vault_password -i inventory/online deploy-datasource.yml  --limit=staging -K
+ansible-playbook --vault-password-file=vault_password -i inventory/online deploy-gobelins.yml  --limit=staging -K
+```
+
+2/ Copy SCOM dump files to the target of `SCOM_DUMP_FILE_PATH` in `.env`.
+
+3/ Run the import task
+
+```shell
+php artisan gobelins:import_scom
+```
 
 ## Adding encrypted variables
 
