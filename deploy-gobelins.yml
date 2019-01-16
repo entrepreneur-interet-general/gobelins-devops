@@ -18,6 +18,7 @@
       - storage/framework/testing
       - storage/framework/views
       - storage/logs
+      - public/media
     ansistrano_shared_files:
       - .env
 

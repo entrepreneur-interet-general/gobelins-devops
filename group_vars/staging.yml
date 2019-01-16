@@ -1,5 +1,7 @@
 enable_ssl: false
 
+deployer_user: ned
+
 virtualhosts:
   gobelins:
     servernames:
