@@ -17,8 +17,8 @@ server {
     }
 
     # Media files
-    location ~* \.(?:jpg|jpeg|gif|png|ico|cur|gz|svg|mp4|ogg|ogv|webm|htc)$ {
-        access_log off;
+    location ~* ^/media/.+\.jpe?g$ {
+        try_files $uri /index.php?$args;
         expires 1M;
     }
 
