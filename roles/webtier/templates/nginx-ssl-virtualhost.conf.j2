@@ -32,19 +32,18 @@ server {
     add_header X-Frame-Options DENY;
     add_header X-Content-Type-Options nosniff;
 
-    # Requests for images can be cached with a query param.
-    set $skip_fcgi_cache 1;
-    if ($request_uri ~ ^\/image\/.*cache=1.*$) {
-       set $skip_fcgi_cache 0;
-    }
-
     location / {
-        set $skip_fcgi_cache 1;
         try_files $uri $uri/ /index.php?$args;
     }
 
     location ~ /.well-known {
         allow all;
+    }
+
+    # Media files
+    location ~* \.(?:jpg|jpeg|gif|png|ico|cur|gz|svg|mp4|ogg|ogv|webm|htc)$ {
+        access_log off;
+        expires 1M;
     }
 
     location ~ \.php$ {
@@ -54,14 +53,5 @@ server {
         fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
         fastcgi_read_timeout 1200;
         include fastcgi_params;
-
-        ## FCGI caching ##
-        fastcgi_cache gobelinsimg;
-        fastcgi_cache_valid any 1y;
-        fastcgi_cache_use_stale updating error timeout invalid_header http_500;
-        fastcgi_ignore_headers Cache-Control Expires Set-Cookie;
-        fastcgi_cache_bypass $skip_fcgi_cache;
-        fastcgi_no_cache $skip_fcgi_cache;
-        add_header X-Cache $upstream_cache_status;
     }
 }
