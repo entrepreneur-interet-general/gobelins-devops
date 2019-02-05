@@ -11,6 +11,6 @@
   tags: deployer_user
   git_config:
     name: http.proxy
-    scope: global
+    scope: system
     value: "{{ proxy_env.http_proxy }}"
   when: proxy_env.http_proxy
