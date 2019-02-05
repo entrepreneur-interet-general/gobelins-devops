@@ -8,9 +8,6 @@
 - import_tasks: remi.yml
   when: ansible_distribution == 'CentOS' or ansible_distribution == 'RedHat'
 
-- import_tasks: user.yml
-  when: ansible_distribution == 'CentOS' or ansible_distribution == 'RedHat'
-
 - name: Make sure git is installed
   tags: git
   yum: name=git state=installed
@@ -20,6 +17,9 @@
   tags: git
   apt: name=git state=installed
   when: ansible_distribution == 'Ubuntu' or ansible_distribution == 'Debian'
+
+- import_tasks: user.yml
+  when: ansible_distribution == 'CentOS' or ansible_distribution == 'RedHat'
 
 - name: Make sure unzip is installed
   tags: unzip
