@@ -1,0 +1,5 @@
+# file: roles/webtier/tasks/jpegoptim.yml
+- name: Install jpegoptim
+  tags: jpegoptim
+  yum: name=jpegoptim state=installed
+  when: ansible_distribution == 'CentOS' or ansible_distribution == 'RedHat'

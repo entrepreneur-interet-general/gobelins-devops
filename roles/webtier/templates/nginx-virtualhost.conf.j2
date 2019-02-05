@@ -12,15 +12,14 @@ server {
     access_log  /var/log/nginx/{{ item.value.servernames[0] }}-access.log;
     error_log  /var/log/nginx/{{ item.value.servernames[0] }}-error.log error;
 
-    # Requests for images can be cached with a query param.
-    set $skip_fcgi_cache 1;
-    if ($request_uri ~ ^\/image\/.*cache=1.*$) {
-       set $skip_fcgi_cache 0;
+    location / {
+        try_files $uri $uri/ /index.php?$args;
     }
 
-    location / {
-        set $skip_fcgi_cache 1;
-        try_files $uri $uri/ /index.php?$args;
+    # Media files
+    location ~* ^/media/.+\.jpe?g$ {
+        try_files $uri /index.php?$args;
+        expires 1M;
     }
 
     location ~ \.php$ {
@@ -30,15 +29,6 @@ server {
         fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
         fastcgi_read_timeout 1200;
         include fastcgi_params;
-
-        ## FCGI caching ##
-        fastcgi_cache gobelinsimg;
-        fastcgi_cache_valid any 1y;
-        fastcgi_cache_use_stale updating error timeout invalid_header http_500;
-        fastcgi_ignore_headers Cache-Control Expires Set-Cookie;
-        fastcgi_cache_bypass $skip_fcgi_cache;
-        fastcgi_no_cache $skip_fcgi_cache;
-        add_header X-Cache $upstream_cache_status;
 
     }
 }
