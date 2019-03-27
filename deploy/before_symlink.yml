@@ -1,3 +1,4 @@
-- include: "{{ playbook_dir }}/deploy/steps/clear_app_cache.yml"
+# - include: "{{ playbook_dir }}/deploy/steps/clear_app_cache.yml"
+- include: "{{ playbook_dir }}/deploy/steps/ensure_storage_writable.yml"
 - include: "{{ playbook_dir }}/deploy/steps/optimize.yml"
 - include: "{{ playbook_dir }}/deploy/steps/npm.yml"

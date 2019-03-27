@@ -13,3 +13,15 @@
     {{ php_path }} artisan route:cache
   when: artisan_commands.stdout.find('route:cache') != -1
   ignore_errors: yes
+
+- name: Cache config
+  shell: chdir={{ ansistrano_release_path.stdout }}
+    {{ php_path }} artisan config:cache
+  when: artisan_commands.stdout.find('config:cache') != -1
+  ignore_errors: yes
+
+- name: Cache views
+  shell: chdir={{ ansistrano_release_path.stdout }}
+    {{ php_path }} artisan view:cache
+  when: artisan_commands.stdout.find('view:cache') != -1
+  ignore_errors: yes

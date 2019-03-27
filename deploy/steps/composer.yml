@@ -9,6 +9,7 @@
   register: composer_self_update_result
   changed_when: composer_self_update_result.stderr | search('Updating')
   become: true
+  become_user: root
 
 # - name: Install composer
 #  environment: "{{ proxy_env }}"

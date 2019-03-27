@@ -7,6 +7,9 @@ virtualhosts:
     servernames:
       - beta.collections-mobilier-national.com
       - admin.beta.collections-mobilier-national.com
+      - www.beta.collections-mobilier-national.com
+    redirects:
+      - www.beta.collections-mobilier-national.com
     run_queue_worker: false
     has_scheduled_jobs: false
   datasource:

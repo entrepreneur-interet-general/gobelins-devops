@@ -1,4 +1,0 @@
-- name: Chown shared storage to nginx:nginx
-  become: true
-  become_user: root
-  file: path={{ ansistrano_deploy_to }}/shared/storage state=directory owner=nginx group=nginx recurse=yes mode=0755 

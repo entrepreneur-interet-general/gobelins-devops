@@ -10,14 +10,14 @@
     ansistrano_keep_releases: 3
 
     ansistrano_shared_paths:
-      - storage/app
-      - storage/cache
-      - storage/debugbar
-      - storage/framework/cache
-      - storage/framework/sessions
-      - storage/framework/testing
-      - storage/framework/views
-      - storage/logs
+      # - storage/app
+      # - storage/cache
+      # - storage/debugbar
+      # - storage/framework/cache
+      # - storage/framework/sessions
+      # - storage/framework/testing
+      # - storage/framework/views
+      # - storage/logs
       - public/media
     ansistrano_shared_files:
       - .env
