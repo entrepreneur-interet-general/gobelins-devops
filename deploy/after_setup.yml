@@ -1,0 +1,1 @@
+- include: "{{ playbook_dir }}/deploy/steps/chown_shared_storage.yml"

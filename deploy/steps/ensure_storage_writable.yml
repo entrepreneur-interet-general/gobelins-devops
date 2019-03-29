@@ -1,0 +1,4 @@
+- name: Ensure that the realease's storage folder is writable by nginx:nginx
+  become: true
+  become_user: root
+  file: path={{ ansistrano_release_path.stdout }}/storage state=directory owner=nginx group=nginx recurse=yes mode=0755
