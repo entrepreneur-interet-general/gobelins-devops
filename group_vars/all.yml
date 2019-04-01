@@ -19,6 +19,8 @@ proxy_env:
   http_proxy: _none_
   https_proxy: _none_
 
+extra_nginx_server_directives: ""
+
 php_extra_packages:
   - php-intl
   - php-pgsql
