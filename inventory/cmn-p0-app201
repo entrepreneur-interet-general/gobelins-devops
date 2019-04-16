@@ -1,0 +1,19 @@
+# file: cmn-p0-app201
+
+[webservers]
+cmn-p0-app201.culture.fr ansible_ssh_host=172.18.2.52 ansible_ssh_port=22 ansible_ssh_user=atoth
+
+[pgsqlservers]
+cmn-p0-app201.culture.fr ansible_ssh_host=172.18.2.52 ansible_ssh_port=22 ansible_ssh_user=atoth
+
+[queueservers]
+cmn-p0-app201.culture.fr ansible_ssh_host=172.18.2.52 ansible_ssh_port=22 ansible_ssh_user=atoth
+
+[elasticsearchservers]
+cmn-p0-app201.culture.fr ansible_ssh_host=172.18.2.52 ansible_ssh_port=22 ansible_ssh_user=atoth
+
+[production:children]
+webservers
+pgsqlservers
+queueservers
+elasticsearchservers

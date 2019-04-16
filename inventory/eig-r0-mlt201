@@ -1,0 +1,19 @@
+# file: eig-r0-mlt201
+
+[webservers]
+eig-r0-mlt201.culture.fr ansible_ssh_host=143.126.229.151 ansible_ssh_port=22 ansible_ssh_user=atoth
+
+[pgsqlservers]
+eig-r0-mlt201.culture.fr ansible_ssh_host=143.126.229.151 ansible_ssh_port=22 ansible_ssh_user=atoth
+
+[queueservers]
+eig-r0-mlt201.culture.fr ansible_ssh_host=143.126.229.151 ansible_ssh_port=22 ansible_ssh_user=atoth
+
+[elasticsearchservers]
+eig-r0-mlt201.culture.fr ansible_ssh_host=143.126.229.151 ansible_ssh_port=22 ansible_ssh_user=atoth
+
+[recette:children]
+webservers
+pgsqlservers
+queueservers
+elasticsearchservers
