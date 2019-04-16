@@ -72,5 +72,5 @@ ansible-vault encrypt_string 'supersecretstring' --name 'label_name' --vault-pas
 
 [MIT](https://opensource.org/licenses/MIT)
 
-Copyright © 2018 Ministère de la Culture et de la Communication
+Copyright © 2019 Ministère de la Culture
 Mobilier national et manufactures des Gobelins, de Beauvais et de la Savonnerie.
