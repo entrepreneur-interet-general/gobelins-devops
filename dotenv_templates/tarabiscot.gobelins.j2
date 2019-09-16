@@ -38,6 +38,7 @@ PUSHER_APP_CLUSTER=mt1
 
 MIX_PUSHER_APP_KEY="${PUSHER_APP_KEY}"
 MIX_PUSHER_APP_CLUSTER="${PUSHER_APP_CLUSTER}"
+MIX_SENTRY_ENV="${APP_ENV}"
 
 DATASOURCE_BASEURI=http://datasource.collections-mobilier-national.com
 
@@ -48,3 +49,5 @@ MIX_COLLECTION_DSN="${APP_URL}/rechercher"
 
 HTTP_AUTH_USERNAME={{ dotenv.http_auth_username }}
 HTTP_AUTH_PASSWORD={{ dotenv.http_auth_password }}
+
+MOB_NAT_USER_PASSWORD={{ dotenv.mob_nat_password }}
