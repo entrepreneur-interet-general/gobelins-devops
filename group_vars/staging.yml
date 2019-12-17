@@ -2,6 +2,8 @@ enable_ssl: false
 
 deployer_user: ned
 
+ansistrano_git_branch: master
+
 virtualhosts:
   gobelins:
     servernames:

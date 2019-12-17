@@ -1,5 +1,6 @@
 # file: deploy-gobelins.yml
 - hosts: webservers
+  debugger: on_failed
   become: true
   become_user: "{{ deployer_user }}"
   roles:
@@ -28,7 +29,8 @@
     # Variables used in the Git deployment strategy
     # ansistrano_git_repo: git@github.com:entrepreneur-interet-general/gobelins.git
     ansistrano_git_repo: https://github.com/entrepreneur-interet-general/gobelins.git
-    ansistrano_git_branch: master
+    # Defined in group_vars, depending on environment.
+    #ansistrano_git_branch: master
 
     ansistrano_before_setup_tasks_file: "{{ playbook_dir }}/deploy/before_setup_tasks.yml"
     ansistrano_before_symlink_shared_tasks_file: "{{ playbook_dir }}/deploy/before_symlink_shared.yml"
