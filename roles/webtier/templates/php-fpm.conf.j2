@@ -19,3 +19,6 @@ php_admin_flag[log_errors] = on
 php_value[session.save_handler] = files
 php_value[session.save_path]    = /var/lib/php/session
 php_value[soap.wsdl_cache_dir]  = /var/lib/php/wsdlcache
+
+access.log = /var/log/php-fpm/php-fpm.access.log
+access.format = "%{REMOTE_ADDR}e - %u %t \"%m %r%Q%q\" %s %f %{mili}d %{kilo}M %C%%"
