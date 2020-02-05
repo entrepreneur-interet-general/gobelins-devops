@@ -4,6 +4,10 @@ deployer_user: ned
 
 ansistrano_git_branch: master
 
+proxy_env:
+  http_proxy: _none_
+  https_proxy: _none_
+
 virtualhosts:
   gobelins:
     servernames:

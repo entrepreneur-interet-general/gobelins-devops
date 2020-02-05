@@ -7,7 +7,7 @@
   shell: "{{ composer_path }} selfupdate --no-interaction"
   when: composer_file.stat.exists and composer_self_update
   register: composer_self_update_result
-  changed_when: composer_self_update_result.stderr | search('Updating')
+  changed_when: composer_self_update_result.stderr is search('Updating')
   become: true
   become_user: root
 
@@ -20,4 +20,4 @@
   shell: chdir={{ ansistrano_release_path.stdout }}
     {{ php_path }} {{ composer_path }} install {{ composer_options }}
   register: composer_install_result
-  changed_when: composer_install_result.stderr | search('- \w+ing ')
+  changed_when: composer_install_result.stderr is search('- \w+ing ')
