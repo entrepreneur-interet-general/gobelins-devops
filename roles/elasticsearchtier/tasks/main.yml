@@ -5,3 +5,4 @@
 - import_tasks: elasticsearch-apt-repo.yml
   when: ansible_distribution == 'Ubuntu' or ansible_distribution == 'Debian'
 - import_tasks: elasticsearch.yml
+- import_tasks: elasticsearch-plugins.yml
