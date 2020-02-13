@@ -22,6 +22,9 @@ proxy_env:
   http_proxy: _none_
   https_proxy: _none_
 
+proxy_host:
+proxy_port:
+
 extra_nginx_server_directives: ""
 
 php_extra_packages:
