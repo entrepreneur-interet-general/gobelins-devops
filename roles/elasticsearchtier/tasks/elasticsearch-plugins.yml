@@ -3,4 +3,4 @@
     name: analysis-icu
     state: present
     proxy_host: "{{ proxy_host }}"
-    proxy_port: "{{ proxy_port }}"
+    proxy_port: "{{ proxy_port | int }}"
