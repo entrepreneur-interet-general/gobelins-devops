@@ -22,7 +22,7 @@ Vagrant.configure("2") do |config|
 
       node.vm.synced_folder ".", "/vagrant", disabled: true
       node.vm.synced_folder "../gobelins-datasource/storage/app/scom_latest", "/srv/scom_latest"
-      node.vm.synced_folder "../gobelins/storage/app/media", "/srv/media"
+      node.vm.synced_folder "../gobelins/public/media", "/srv/media"
 
       node.vm.provider :virtualbox do |v|
         v.customize ["modifyvm", :id, "--memory", 512]

@@ -12,6 +12,9 @@ letsencrypt_email: ned@baldessin.fr
 # Unprivileged system user created to execute application deployment tasks.
 deployer_user: gobelins
 
+# master is the production branch.
+ansistrano_git_branch: master
+
 epel_repo_name: epel
 remi_repo_name: remi
 remiphp72_repo_name: remi-php72
