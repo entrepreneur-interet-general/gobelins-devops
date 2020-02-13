@@ -2,6 +2,8 @@
 - elasticsearch_plugin:
     name: analysis-icu
     state: present
+  notify:
+    - Restart elasticsearch
   environment:
     ES_JAVA_OPTS: "-Dhttp.proxyHost={{proxy_host}} -Dhttp.proxyPort={{proxy_port}} -Dhttps.proxyHost={{proxy_host}}
 -Dhttps.proxyPort={{proxy_port}}"
