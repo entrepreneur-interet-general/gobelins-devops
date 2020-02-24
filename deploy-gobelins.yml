@@ -20,6 +20,7 @@
       # - storage/framework/views
       # - storage/logs
       - public/media
+      - public/sitemaps
     ansistrano_shared_files:
       - .env
 

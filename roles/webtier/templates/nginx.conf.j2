@@ -32,6 +32,7 @@ http {
     keepalive_requests 100;
 
     gzip  on;
+    gzip_types  application/javascript application/rss+xml application/vnd.ms-fontobject application/x-font application/x-font-opentype application/x-font-otf application/x-font-truetype application/x-font-ttf application/x-javascript application/xhtml+xml application/xml font/opentype font/otf font/ttf image/svg+xml image/x-icon text/css text/javascript text/plain text/xml;
 
     # Key zone size: 20Mb =~ 160 000 keys
     fastcgi_cache_path /var/cache/nginx/gobelinsimg levels=1:2 keys_zone=gobelinsimg:20m max_size=10g inactive=1y;
