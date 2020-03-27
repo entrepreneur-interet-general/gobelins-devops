@@ -56,7 +56,7 @@ postgresql_databases:
     encoding: UTF8
     lc_collate: "fr_FR.UTF-8"
     lc_ctype: "fr_FR.UTF-8"
-  - name: datastore
+  - name: datasource
     encoding: UTF8
     lc_collate: "fr_FR.UTF-8"
     lc_ctype: "fr_FR.UTF-8"
