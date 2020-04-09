@@ -18,7 +18,7 @@
       # - storage/framework/sessions
       # - storage/framework/testing
       # - storage/framework/views
-      # - storage/logs
+      - storage/logs
       - public/media
       - public/sitemaps
     ansistrano_shared_files:
