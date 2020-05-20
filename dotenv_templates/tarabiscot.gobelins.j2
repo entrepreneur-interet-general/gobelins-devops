@@ -45,6 +45,9 @@ MIX_PUSHER_APP_CLUSTER="${PUSHER_APP_CLUSTER}"
 MIX_SENTRY_ENV="${APP_ENV}"
 
 DATASOURCE_BASEURI=http://datasource.collections-mobilier-national.com
+DATASOURCE_USERNAME={{ dotenv.datasource_username }}
+DATASOURCE_PASSWORD={{ dotenv.datasource_password }}
+
 
 # Relative to Laravel storage folder.
 MEDIA_STORAGE_PATH=app/media
@@ -57,3 +60,7 @@ HTTP_AUTH_PASSWORD={{ dotenv.http_auth_password }}
 MOB_NAT_USER_PASSWORD={{ dotenv.mob_nat_password }}
 
 TRUSTED_PROXIES=
+
+# List of emails of the OAI-PMH repository
+# Must be a comma separated string.
+OAI_ADMIN_EMAILS="ned@baldessin.fr, documentation.mobilier@culture.gouv.fr"

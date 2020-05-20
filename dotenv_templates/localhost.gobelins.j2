@@ -43,6 +43,8 @@ MIX_PUSHER_APP_CLUSTER="${PUSHER_APP_CLUSTER}"
 MIX_SENTRY_ENV="${APP_ENV}"
 
 DATASOURCE_BASEURI=http://gobelins-datasource.test
+DATASOURCE_USERNAME={{ dotenv.datasource_username }}
+DATASOURCE_PASSWORD={{ dotenv.datasource_password }}
 
 # Relative to Laravel storage folder.
 MEDIA_STORAGE_PATH=app/media
