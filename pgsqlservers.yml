@@ -9,31 +9,28 @@
     #     policy: targeted
     #     state: permissive
 
-
-
-
     - name: Enable PostgreSQL 9.6repository permanently
       tags: pgdg96
       yum_repository:
         name: pgdg96
         description: PostgreSQL 9.6 $releasever - $basearch
-        baseurl: https://download.postgresql.org/pub/repos/yum/9.6/redhat/rhel-$releasever-$basearch 
+        baseurl: https://download.postgresql.org/pub/repos/yum/9.6/redhat/rhel-$releasever-$basearch
         enabled: 1
         gpgcheck: 1
         gpgkey: https://download.postgresql.org/pub/repos/yum/RPM-GPG-KEY-PGDG-96
         proxy: "{{ proxy_env.http_proxy }}"
-#    - name: Install PostgreSQL 9.6 repository
-#      yum:
-#        name: https://download.postgresql.org/pub/repos/yum/9.6/redhat/rhel-7-x86_64/pgdg-centos96-9.6-3.noarch.rpm
-#        state: present
+  #    - name: Install PostgreSQL 9.6 repository
+  #      yum:
+  #        name: https://download.postgresql.org/pub/repos/yum/9.6/redhat/rhel-7-x86_64/pgdg-centos96-9.6-3.noarch.rpm
+  #        state: present
 
-    - name: Reinstall glibc-common for locales
-      command: /usr/bin/yum reinstall glibc-common -y
-      args:
-        warn: no
+  # - name: Reinstall glibc-common for locales
+  #   command: /usr/bin/yum reinstall glibc-common -y
+  #   args:
+  #     warn: no
 
-    - name: Set default locale
-      command: localectl set-locale LANG="{{ default_locale }}"
+  # - name: Set default locale
+  #   command: localectl set-locale LANG="{{ default_locale }}"
 
   roles:
     - common

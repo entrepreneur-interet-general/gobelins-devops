@@ -2,31 +2,31 @@
 - name: Install PHP and extensions
   yum:
     name:
-      - php
-      - php-zip
-      - php-openssl
-      - php-pdo
-      - php-mbstring
-      - php-tokenizer
-      - php-xml
-      - php-mysqlnd
-      - php-opcache
+      - php74
+      - php74-php-common
+      - php74-php-bcmath
+      - php74-php-pdo
+      - php74-php-mbstring
+      - php74-php-xml
+      - php74-php-pgsql
+      - php74-php-mysqlnd
+      - php74-php-json
+      - php74-php-opcache
     state: installed
-    enablerepo: "{{ epel_repo_name }},{{ remi_repo_name }},{{ remiphp72_repo_name }}"
+    enablerepo: "{{ epel_repo_name }},{{ remi_repo_name }},{{ remiphp74_repo_name }}"
   tags: php
   when: ansible_distribution == 'CentOS' or ansible_distribution == 'RedHat'
 
 - name: Install PHP and extensions
   apt:
     name:
-      - php7.2
-      - php7.2-zip
-      - php7.2-pdo
-      - php7.2-mbstring
-      - php7.2-tokenizer
-      - php7.2-xml
-      - php7.2-mysqlnd
-      - php7.2-opcache
+      - php7.4
+      - php7.4-pdo
+      - php7.4-mbstring
+      - php7.4-tokenizer
+      - php7.4-xml
+      - php7.4-mysqlnd
+      - php7.4-opcache
     state: installed
     update_cache: yes
   tags: php
@@ -36,7 +36,7 @@
   yum:
     name: "{{ php_extra_packages }}"
     state: installed
-    enablerepo: "{{ epel_repo_name }},{{ remi_repo_name }},{{ remiphp72_repo_name }}"
+    enablerepo: "{{ epel_repo_name }},{{ remi_repo_name }},{{ remiphp74_repo_name }}"
   tags: php-extra
   when: php_extra_packages is defined and (ansible_distribution == 'CentOS' or ansible_distribution == 'RedHat')
   notify:
@@ -71,9 +71,9 @@
     option: memory_limit
     value: "{{ php_memory_limit }}"
   with_items:
-    - /etc/php/7.2/apache2/php.ini
-    - /etc/php/7.2/fpm/php.ini
-    - /etc/php/7.2/cli/php.ini
+    - /etc/php/7.4/apache2/php.ini
+    - /etc/php/7.4/fpm/php.ini
+    - /etc/php/7.4/cli/php.ini
   when: php_memory_limit is defined and (ansible_distribution == 'Ubuntu' or ansible_distribution == 'Debian')
   notify:
     - Restart php-fpm (Debian)

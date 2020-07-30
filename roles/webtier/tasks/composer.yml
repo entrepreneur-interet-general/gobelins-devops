@@ -12,7 +12,8 @@
   get_url:
     url: https://getcomposer.org/installer
     dest: /tmp/composer-setup.php
-    use_proxy: yes
+    use_proxy: "{{ proxy_env.https_proxy != '_none_' }}"
+    validate_certs: no
 
 - name: Install composer
   tags: composer

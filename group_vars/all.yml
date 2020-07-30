@@ -17,7 +17,7 @@ ansistrano_git_branch: master
 
 epel_repo_name: epel
 remi_repo_name: remi
-remiphp72_repo_name: remi-php72
+remiphp74_repo_name: remi-php74
 proxy_env:
   http_proxy: _none_
   https_proxy: _none_
