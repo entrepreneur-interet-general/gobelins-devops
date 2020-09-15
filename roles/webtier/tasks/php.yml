@@ -3,6 +3,7 @@
   yum:
     name:
       - php74
+      - php74-php
       - php74-php-common
       - php74-php-bcmath
       - php74-php-pdo
