@@ -43,14 +43,14 @@ MIX_PUSHER_APP_CLUSTER="${PUSHER_APP_CLUSTER}"
 MIX_SENTRY_ENV="${APP_ENV}"
 
 DATASOURCE_BASEURI=http://gobelins-datasource.test
-DATASOURCE_USERNAME={{ dotenv.datasource_username }}
-DATASOURCE_PASSWORD={{ dotenv.datasource_password }}
+DATASOURCE_USERNAME="{{ dotenv.datasource_username }}"
+DATASOURCE_PASSWORD="{{ dotenv.datasource_password }}"
 
 # Relative to Laravel storage folder.
 MEDIA_STORAGE_PATH=app/media
 
 MIX_COLLECTION_DSN="${APP_URL}/rechercher"
 
-MOB_NAT_USER_PASSWORD={{ dotenv.mob_nat_password }}
+MOB_NAT_USER_PASSWORD="{{ dotenv.mob_nat_password }}"
 
 TRUSTED_PROXIES=
