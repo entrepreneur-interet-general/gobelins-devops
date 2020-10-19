@@ -25,7 +25,9 @@ proxy_env:
 proxy_host:
 proxy_port:
 
-extra_nginx_server_directives: ""
+#extra_nginx_server_directives: ""
+extra_nginx_server_directives: |
+  client_max_body_size 200M;
 
 php_extra_packages:
   - php-intl
