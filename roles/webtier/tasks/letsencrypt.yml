@@ -16,7 +16,7 @@
 
 - name: Install / renew certificates
   tags: letsencrypt
-  shell: certbot certonly --noninteractive --webroot --email {{ letsencrypt_email }} --agree-tos --renew-by-default -w /var/www/{{ item.key }}/public -d {{ item.value.servername }}
+  shell: certbot certonly --noninteractive --webroot --email {{ letsencrypt_email }} --agree-tos --renew-by-default -w /var/www/{{ item.key }}/current/public -d {{ item.value.servername }}
   with_dict: "{{ virtualhosts }}"
   notify:
     - Restart nginx

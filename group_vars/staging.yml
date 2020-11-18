@@ -1,8 +1,8 @@
-enable_ssl: false
+enable_ssl: true
 
 deployer_user: ned
 
-ansistrano_git_branch: master
+ansistrano_git_branch: cms
 
 mailgun_domain: beta.collections-mobilier-national.com
 mailgun_secret: !vault |
@@ -21,6 +21,7 @@ proxy_env:
 
 virtualhosts:
   gobelins:
+    servername: beta.collections-mobilier-national.com
     servernames:
       - beta.collections-mobilier-national.com
       - admin.beta.collections-mobilier-national.com
@@ -30,6 +31,7 @@ virtualhosts:
     run_queue_worker: false
     has_scheduled_jobs: false
   datasource:
+    servername: datasource.collections-mobilier-national.com
     servernames:
       - datasource.collections-mobilier-national.com
     run_queue_worker: false

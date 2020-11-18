@@ -64,6 +64,17 @@
   notify:
     - Restart php-fpm
 
+- name: Set PHP upload_max_filesize in php.ini
+  tags: php
+  ini_file:
+    dest: /etc/php.ini
+    section: "PHP"
+    option: upload_max_filesize
+    value: "{{ php_upload_max_filesize }}"
+  when: php_upload_max_filesize is defined and (ansible_distribution == 'CentOS' or ansible_distribution == 'RedHat')
+  notify:
+    - Restart php-fpm
+
 - name: Set PHP memory limit in php.ini
   tags: php
   ini_file:

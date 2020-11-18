@@ -46,6 +46,9 @@ php_extra_packages:
   - php-zip
   - php-bcmath
 
+php_memory_limit: "100M"
+php_upload_max_filesize: "100M"
+
 server_locales:
   - en_US.UTF-8
   - fr_FR.UTF-8
